@@ -1,0 +1,51 @@
+Notation : M = millions, G = millions, T = milliards.
+
+==================================
+Corpus 1 : PayeTonCorpus
+(https://www.ortolang.fr/market/corpora/payetoncorpus)
+
+- Taille (en nb de mots le plus souvent) : 295M mots
+
+- Annotations (niveaux et outils utilisés) : Annotation conversationnelle au format TEI.
+
+- Statut de la documentation (guidelines, publication scienti􏰀que) :
+
+- Stratégie d'échantillonage et origine des textes (genre) :  SMS, Tweets, Posts.
+
+- Modalité (écrit/oral) : écrit.
+
+- Licence et droits d'utilisation:  Libre sans utilisation commerciale .
+
+==================================
+Corpus 2 : European Parliament Proceedings Parallel Corpus 1996-2011 
+(www.statmt.org/europarl/)
+(https://vlo.clarin.eu/record?4&count=1&docId=hdl_58_21.11119_47_0000-0000-D5ED-5&fq=licenseType:PUB&fq=licenseType:ACA&fq=resourceClass:Corpus+of+Proceedings+of+the+European+Parliament&fqType=licenseType:or&fqType=resourceClass:or&index=0&tab=cmdi)
+
+- Taille (en nb de mots le plus souvent) : environ 60G * 21 langues = 1,26T.
+ 
+- Annotations (niveaux et outils utilisés) : Corpus obtenu notamment grâce à l'algorithme Gale–Church pour l'alignement des phrases. Donc l'annotation à lieu au niveau des phrases.
+
+- Statut de la documentation (guidelines, publication scienti􏰀que) :
+
+- Stratégie d'échantillonage et origine des textes (genre) : Corpus issu des débats du parlement européen. 
+
+- Modalité (écrit/oral) : oral.
+
+- Licence et droits d'utilisation: CC-BY-SA-NC-4.0.
+
+
+==================================
+Corpus 3 : Arabic news corpus from 2013 
+(https://vlo.clarin.eu/record?1&count=328455&docId=hdl_58_11022_47_0000-0000-7F4F-B&fq=licenseType:PUB&fq=licenseType:ACA&fq=resourceClass:text&fqType=licenseType:or&fqType=resourceClass:or&index=7&tab=cmdi)
+
+- Taille (en nb de mots le plus souvent) : 20G mots
+
+- Annotations (niveaux et outils utilisés) : word cooccurrences
+
+- Statut de la documentation (guidelines, publication scienti􏰀que) :
+
+- Stratégie d'échantillonage et origine des textes (genre) : Textes journalistiques.
+
+- Modalité (écrit/oral) : écrit.
+
+- Licence et droits d'utilisation: Licence CC BY-NC.
