@@ -28,7 +28,8 @@ def analyse_svo(phrase, nlp):
     print(f"\n\nS : {sujet}, V : {verbe}, O : {obj}")
 
 def main():
-    nlp = spacy.load("fr_core_news_sm")
+    # nlp = spacy.load("fr_core_news_sm")
+    nlp = spacy.load("fr_core_news_md")
 
     listePhrases = [
         "Le chat mange la souris.",
