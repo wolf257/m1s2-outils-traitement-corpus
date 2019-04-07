@@ -25,3 +25,7 @@ De même, le 'ne' de négation a été placé sous le S, au lieu du V.
 Là encore, fr_core_news_md fait un peu mieux. Il tag le 'd' comme déterminant, là où fr_core_news_sm en fait un NUM, et au niveau des dépendances, fr_core_news_md reconnait réclament comme ROOT de l'arbre, là où fr_core_news_sm choisit 'impôts' comme ROOT.
 
 ## Seconde hypothèse : script pas assez affiné
+
+Si ceci est une première analyse, on concède n'avoir pas assez d'expérience sur spacy pour prétendre en démonter la mécanique.
+
+C'est pourquoi, nous estimons que d'ici peu, notre analyse sera pour être plus poussée et juste.
