@@ -25,3 +25,11 @@
 ## Input
 
 Pour l'ancien français, nous avons choisi un extrait des Essais de Montaigne (T1 Chap 19, ed de la Pléiade).
+
+## Remarques
+
+Pour la tokenisation, une fois les règles ajoutées, tout se passe très bien.
+
+Pour le repérage d'entités, si spacy les reconnait plutôt bien, parfois il a bien du mal à dire quel type d'entité c'est. Ainsi, plusieurs personnes deviennent LOC, des lieux MISC, etc.
+
+Cela pourrait influencer l'analyse, donc on doit y faire attention. Puis disons que l'extrait soumis n'est pas des plus facile, même pour nous.
