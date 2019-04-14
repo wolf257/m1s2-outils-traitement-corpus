@@ -6,7 +6,7 @@
 
 ## Syntaxe
 
-* python3 main.py *
+** python3 main.py **
 
 ## Déroulement du script
 
