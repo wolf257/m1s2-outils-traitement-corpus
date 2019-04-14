@@ -72,6 +72,9 @@ def phase_training(nlp, model, TRAIN_DATA):
             {'ORTH': "y'", 'LEMMA': "y", 'POS': "PRO"},
             {'ORTH': "a"}
         ],
+        "disoit" : [
+            {'ORTH': "disoit", 'LEMMA': "dire", 'POS': "VERB"}
+        ],
         "Nostre" : [
             {'ORTH': 'Nostre', 'LEMMA': "notre", 'POS': "PRO", 'NORM': "notre",}
         ],
@@ -87,8 +90,14 @@ def phase_training(nlp, model, TRAIN_DATA):
         "sçavent" : [
             {'ORTH': 'sçavent', 'LEMMA': "savoir", 'POS': "VERB", 'NORM': "savent"}
         ],
+        "tantost" : [
+            {'ORTH': 'tantost', 'LEMMA': "tantôt", 'POS': "PROP",}
+        ],
         "esté" : [
             {'ORTH': 'esté', 'LEMMA': "être", 'POS': "AUX", 'NORM': "était"}
+        ],
+        "faict" : [
+            {'ORTH': 'faict', 'LEMMA': "faire", 'POS': "VERB", 'NORM': "fait"}
         ],
         "s’escria" : [
             {'ORTH': "s'", 'LEMMA': "se", 'POS': " "},
@@ -122,6 +131,21 @@ def phase_training(nlp, model, TRAIN_DATA):
         ],
         "estat" : [
             {'ORTH' : 'estat', 'LEMMA': "état", 'POS': "NOUN", 'NORM': "état"}
+        ],
+        "dixiesme" : [
+            {'ORTH' : 'dixiesme', 'LEMMA': "dixième", 'POS': "NUM", 'NORM': "dixième"}
+        ],
+        "avoit" : [
+            {'ORTH' : 'avoit', 'LEMMA': "avoir", 'POS': "AUX", 'NORM': "avait"}
+        ],
+        "estat" : [
+            {'ORTH' : 'estat', 'LEMMA': "état", 'POS': "NOUN", 'NORM': "état"}
+        ],
+        "branslé" : [
+            {'ORTH' : 'branslé', 'LEMMA': "branler", 'POS': "VERB", 'NORM': "branlé"}
+        ],
+        "veu" : [
+            {'ORTH' : 'veu', 'LEMMA': "voir", 'POS': "VERB", 'NORM': "vu"}
         ]
     }
 
@@ -206,7 +230,12 @@ def main():
         "La firme de Mountain View a levé le voile sur Marseille avec le comte de Monte Cristo et son ami Dwyane Wade.",
         "Les enfans sçavent le conte du Roy Croesus à ce propos : lequel, ayant esté pris par Cyrus et condamné à la mort, sur le point de l’execution, il s’escria : O Solon, Solon’.",
         "Cela rapporté à Cyrus, et s’estant enquis que c’estoit à dire, il luy fist entendre qu’il verifioit lors à ses despens l’advertissement qu’autrefois luy avoit donné Solon, que les hommes, quelque beau visage que fortune leur face, ne se peuvent appeller heureux, jusques à ce qu’on leur aye veu passer le dernier jour de leur vie.",
-        "Cela pour l’incertitude et varieté des choses humaines, qui d’un bien leger mouvement se changent d’un estat en autre, tout divers."
+        "Cela pour l’incertitude et varieté des choses humaines, qui d’un bien leger mouvement se changent d’un estat en autre, tout divers.",
+        "Et pourtant Agesilaus, à quelqu’un qui disoit heureux le Roy de Perse, de ce qu’il estoit venu fort jeune à un si puissant estat.",
+        "Ouy mais, dit-il, Priam en tel age ne fut pas malheureux. ",
+        "Tantost, des Roys de Macedoine, successeurs de ce grand Alexandre, il s’en faict des menuisiers et greffiers à Rome ; des tyrans de Sicile, des pedantes à Corinthe.",
+        "D’un conquerant de la moitié du monde, et Empereur de tant d’armées, il s’en faict un miserable suppliant des belitres officiers d’un Roy d’Égypte : tant cousta à ce grand Pompeius la prolongation de cinq ou six mois de vie. ",
+        "Et, du temps de nos peres, ce Ludovic Sforce, dixiesme Duc de Milan, soubs qui avoit si long temps branslé toute l’Italie, on l’a veu mourir prisonnier à Loches;"
     ]
     
     output_dir = './output'

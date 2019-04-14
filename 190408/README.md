@@ -6,7 +6,7 @@
 
 ## Syntaxe
 
-** python3 main.py **
+**python3 main.py**
 
 ## Déroulement du script
 
@@ -24,4 +24,4 @@
 
 ## Input
 
-Pour l'ancien français, nous avons choisi un extrait des Essais de Montaigne.
+Pour l'ancien français, nous avons choisi un extrait des Essais de Montaigne (T1 Chap 19, ed de la Pléiade).
