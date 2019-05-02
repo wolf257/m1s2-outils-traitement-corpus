@@ -25,9 +25,9 @@ Pour chaque fichier :
 ### Partie récupération d'information
 
 Pour chaque couple fichier de référence, fichier taggé par TreeTagger :
-- Comparer ligne à ligne les POS
-    - Si différent : capturer l'erreur
-    - Sinon : incrémenter le compteur de POS correct
+- Comparer ligne à ligne les POS :
+    - Si différent : capturer l'erreur.
+    - Sinon : incrémenter le compteur de POS correct.
     - Dans tous les cas : incrémenter le compteur de POS total.
 
 ### Partie calcul
