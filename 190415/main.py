@@ -3,7 +3,6 @@
 
 # Syntaxe : python3 main.py
 
-import os
 import sys
 import treetaggerwrapper
 import pprint
@@ -29,9 +28,6 @@ def taggingTreetagger(nameFileIn, nameFileOut, tagger):
 def recupInfosPOSTagging(dico_eval_pos_total, dico_eval_error_total, nameFileReference, nameFileTreeTagger):
     ref = open(nameFileReference, mode="r").readlines()
     tag = open(nameFileTreeTagger, mode="r").readlines()
-
-    # print(f"Taille ref {nameFileReference} : {len(ref)}")
-    # print(f"Taille tag {nameFileTreeTagger} : {len(tag)}")
     
     if len(ref) != len(tag):
         print(f"On a probablement un problème d'alignement.")
@@ -44,9 +40,9 @@ def recupInfosPOSTagging(dico_eval_pos_total, dico_eval_error_total, nameFileRef
 
         # Extraction POS
         pos_ref = ligne_ref[1].strip()
-        # pos_ref = pos_ref.split(':')[0] if ":" in pos_ref else pos_ref
+        pos_ref = pos_ref.split(':')[0] if ":" in pos_ref else pos_ref
         pos_tag = ligne_tag[1].strip()
-        # pos_tag = pos_tag.split(':')[0] if ':' in pos_tag else pos_tag
+        pos_tag = pos_tag.split(':')[0] if ':' in pos_tag else pos_tag
         
         dico_eval_pos_total.setdefault(pos_ref, {})
         dico_eval_pos_total[pos_ref].setdefault("total", 0)
@@ -109,21 +105,20 @@ def main():
     # Construction et configuration du wrapper
     tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr', TAGINENC='utf-8',
                                           TAGOUTENC='utf-8' , TAGDIR=TREETAGGER_ROOT)
-    #
-    # for nameFileIn in fichiersDeBase:
-    #     nameFileOut = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger-new.txt'
-    #
-    #     taggingTreetagger(nameFileIn, nameFileOut, tagger)
+
+    for nameFileIn in fichiersDeBase:
+        nameFileOut = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger-new.txt'
+
+        taggingTreetagger(nameFileIn, nameFileOut, tagger)
 
 
     # PARTIE EVALUATION (librement inspiré du script eval_pos_tagger.py)
     
     dico_eval_pos_total = {}
-    # forme : dico_eval_pos_total['VERB']['correct'] = 13; 
-    #         dico_eval_pos_total['VERB']['total'] = 14
+    # forme : dico_eval_pos_total = { 'VER' : { 'correct' : 13, 'total' : 14 }, 'NOM' ... }
     
     dico_eval_error_total = {}
-    # forme : dico_eval_error_total[('NOM','ADJ')] = 10 c-a-d que 10 fois, un nom a été taggé comme adj
+    # forme : dico_eval_error_total = { ('NOM','ADJ') : 10, ... } c-a-d que 10 fois, un nom a été taggé comme adj.
     
     print(f"- Récupération des infos de POS (tagging + référence).\n")
     
