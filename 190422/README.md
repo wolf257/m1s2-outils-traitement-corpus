@@ -1,15 +1,21 @@
-# Consignes
+# Exercice sem 15/04/19
+
+## Consignes
 
 `Étiquetez manuellement puis avec l’étiqueteur de votre choix les deux textes suivants. Calculez la précision globale pour chacun des textes et commentez.`
 
-# Syntaxe
+## Syntaxe
 
 `python3 main.py`
 
-# Données
+## Données
 
-# Procédure
+Les 2 fichiers :
+- bashung.txt
+- sequoia.txt
 
-# Résultats
+## Procédure
 
-# Commentaire
+## Résultats
+
+## Commentaire
