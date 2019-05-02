@@ -16,21 +16,21 @@ Les 2 fichiers :
 
 ## Procédure
 
-### Partie tagging
+### 1 - Partie tagging
 
 Pour chaque fichier :
 - Tagger tout le fichier.
 - Enregistrer les informations dans un nouveau fichier.
 
-### Partie récupération d'information
+### 2- Partie récupération d'information
 
-Pour chaque couple fichier de référence, fichier taggé par TreeTagger :
+Pour chaque couple (fichier de référence, fichier taggé par TreeTagger) :
 - Comparer ligne à ligne les POS :
-    - Si différent : capturer l'erreur.
+    - Si différents : capturer l'erreur.
     - Sinon : incrémenter le compteur de POS correct.
     - Dans tous les cas : incrémenter le compteur de POS total.
 
-### Partie calcul
+### 3- Partie calcul
 
 - Calcul précision globale.
 - Précision par POS.
