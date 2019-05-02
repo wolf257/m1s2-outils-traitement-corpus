@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=/Users/gueyeousseynou/Dropbox/dropbox_cs/treetagger/bin
+CMD=/Users/gueyeousseynou/Dropbox/dropbox_cs/treetagger/cmd
+LIB=/Users/gueyeousseynou/Dropbox/dropbox_cs/treetagger/lib
+
+OPTIONS="-token -lemma -sgml"
+
+TAGGER=${BIN}/tree-tagger
+TOKENIZER=${CMD}/utf8-tokenize.perl
+PARFILE=${LIB}/slovenian-utf8.par
+
+$TOKENIZER $* |
+$TAGGER $OPTIONS $PARFILE
