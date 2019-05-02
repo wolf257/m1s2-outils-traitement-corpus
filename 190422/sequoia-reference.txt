@@ -21,7 +21,7 @@ batterie	NOM	batterie
 .	SENT	.
 La	DET:ART	le
 gare	NOM	gare
-routière	NOM	routier
+routière	ADJ	routier
 attend	VER:pres	attendre
 toujours	ADV	toujours
 ses	DET:POS	son

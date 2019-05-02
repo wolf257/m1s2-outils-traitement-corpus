@@ -82,17 +82,20 @@ def evaluationPOSTagging(dico_eval_pos, dico_eval_error):
         nbCorrectPOS = dico_eval_pos[pos]['correct']
         nbTotalPOS = dico_eval_pos[pos]['total']
         precisionPOS = round(float(nbCorrectPOS/nbTotalPOS)*100 , 2)
-        print(f"{pos} : {precisionPOS}% ({nbCorrectPOS}/{nbTotalPOS})")
+        print(f"\t{pos} : {precisionPOS}% ({nbCorrectPOS}/{nbTotalPOS})")
 
     print("\n")
 
     # Erreurs, par frequence
-    print(f"Erreurs (par ordre de fréquence décroissant):")
+    print(f"* Erreurs (par ordre de fréquence décroissant):")
     erreurs = sum( dico_eval_error.values() )
     sorted_errors = sorted( [ (dico_eval_error[erreur], erreur) for erreur in dico_eval_error ], reverse = True )
-
-    for (nbErr, err) in sorted_errors:
-        print(f"{err} - {nbErr}")
+    
+    if len(sorted_errors) == 0:
+        print("\tApparemment, il n'y a aucune erreur.")
+    else:
+        for (nbErr, err) in sorted_errors:
+            print(f"{err} - {nbErr}")
     
 
 def main():
@@ -101,25 +104,28 @@ def main():
     fichiersDeBase = ['./bashung.txt', './sequoia.txt']
 
     # PARTIE TAGGING
-    print(f"\n\n- Tagging des fichiers\n")
+    print(f"\n\n- Tagging des fichiers.\n")
     
     # Construction et configuration du wrapper
     tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr', TAGINENC='utf-8',
                                           TAGOUTENC='utf-8' , TAGDIR=TREETAGGER_ROOT)
 
-    for nameFileIn in fichiersDeBase:
-        nameFileOut = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger.txt'
-
-        taggingTreetagger(nameFileIn, nameFileOut, tagger)
+    # for nameFileIn in fichiersDeBase:
+    #     nameFileOut = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger.txt'
+    #
+    #     taggingTreetagger(nameFileIn, nameFileOut, tagger)
 
 
     # PARTIE EVALUATION (librement inspiré du script eval_pos_tagger.py)
     
     dico_eval_pos = {}
-    # forme : dico_eval_pos['VERB']['correct'] = 13; dico_eval_pos['VERB']['cases'] = 14
-    dico_eval_error = {}
+    # forme : dico_eval_pos['VERB']['correct'] = 13; 
+    #         dico_eval_pos['VERB']['total'] = 14
     
-    print(f"- Récupération des infos de POS (tagging + référence)\n")
+    dico_eval_error = {}
+    # forme : dico_eval_error[('NOM','ADJ')] = 10 c-a-d que 10 fois, un nom a été taggé comme adj
+    
+    print(f"- Récupération des infos de POS (tagging + référence).\n")
     
     for nameFileIn in fichiersDeBase:
         nameFileTreeTagger = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger.txt'
@@ -127,11 +133,8 @@ def main():
 
         recupInfosPOSTagging(dico_eval_pos, dico_eval_error, nameFileReference, nameFileTreeTagger)
 
-    # print(f"Dico eval POS : ")
-    # pprint.pprint(dico_eval_pos)
-    # pprint.pprint(f"Dico eval erreur : ")
-    # pprint.pprint(dico_eval_error)
-    
+    print(f"- Calculs.\n")
+
     evaluationPOSTagging(dico_eval_pos, dico_eval_error)
     
 if __name__ == '__main__':
