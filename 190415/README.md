@@ -20,7 +20,7 @@ Les 2 fichiers :
 
 Pour chaque fichier :
 - Tagger tout le fichier.
-- Enregistrer les informations dans un nouveau fichier.
+- Enregistrer les informations dans un nouveau fichier (nom+'-treetagger.txt').
 
 ### 2- Partie récupération d'information
 
@@ -56,5 +56,5 @@ Néanmoins, la démarche pourrait être la même à grande échelle, et nous pen
 
 ## Remarques
 
-En l'état, notre script exige un alignement strict entre les fichiers de référence et les fichiers de treetager, ainsi, on a du parfois manuellement modifié nos fichiers.
+En l'état, notre script exige un alignement strict entre les fichiers de référence et les fichiers de treetager, ainsi, on a du parfois manuellement modifier nos fichiers.
 

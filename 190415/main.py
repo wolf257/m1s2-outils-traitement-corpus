@@ -107,6 +107,7 @@ def main():
                                           TAGOUTENC='utf-8' , TAGDIR=TREETAGGER_ROOT)
 
     for nameFileIn in fichiersDeBase:
+        # NB : le '-new' pour éviter d'écraser les fichiers que nous avons manuellement modifiés 
         nameFileOut = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger-new.txt'
 
         taggingTreetagger(nameFileIn, nameFileOut, tagger)
