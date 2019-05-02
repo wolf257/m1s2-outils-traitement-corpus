@@ -1,5 +1,6 @@
 Je	PRO:PER	je
 m’acolyte	VER:cond	m’acolyte
+acolyte	VER:pres	acolyter
 trop	ADV	trop
 avec	PRP	avec
 moi	NOM	moi
@@ -25,6 +26,7 @@ projos	NOM	projo
 Regarde	VER:pres	regarder
 où	ADV	où
 j’en	ADJ	j’en
+en	PRO	en
 suis	VER:pres	suivre|être
 je	PRO:PER	je
 tringle	VER:pres	tringler
@@ -32,8 +34,10 @@ aux	PRP:det	au
 rideaux	NOM	rideau
 .	SENT	.
 C’est	NAM	C’est
+est	VER	être
 comment	ADV	comment
 qu’on	ADJ	qu’on
+on	PRO	on
 freine	VER:pres	freiner
 .	SENT	.
 Je	PRO:PER	je

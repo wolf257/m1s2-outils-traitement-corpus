@@ -1,9 +1,10 @@
 Je	PRO:PER	je
-m’acolyte	VER:cond	m’acolyte
+m’	PRO	me !!
+acolyte	VER:pres	acolyter !!
 trop	ADV	trop
 avec	PRP	avec
-moi	NOM	moi
--même	ADJ	même
+moi	PRO	moi
+-même	PRO	même !!
 .	SENT	.
 Je	PRO:PER	je
 me	PRO:PER	me
@@ -17,23 +18,26 @@ gêne	VER:pres	gêner
 Ça	PRO:DEM	cela
 sent	VER:pres	sentir
 le	PRO:PER	le
-cramé	VER:pper	cramer
+cramé	NOM	cramé !!
 sous	PRP	sous
 les	DET:ART	le
 projos	NOM	projo
 .	SENT	.
-Regarde	VER:pres	regarder
+Regarde	VER:impe	regarder
 où	ADV	où
-j’en	ADJ	j’en
+j’	PRO	je !! 
+en	PRO	en !!
 suis	VER:pres	suivre|être
 je	PRO:PER	je
 tringle	VER:pres	tringler
 aux	PRP:det	au
 rideaux	NOM	rideau
 .	SENT	.
-C’est	NAM	C’est
+C’	PRO:DEM	ce !!
+est	VER	être !!
 comment	ADV	comment
-qu’on	ADJ	qu’on
+qu’	KON	que !!
+on	PRO	on !!
 freine	VER:pres	freiner
 .	SENT	.
 Je	PRO:PER	je

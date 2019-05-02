@@ -18,4 +18,11 @@ Les 2 fichiers :
 
 ## Résultats
 
+<!-- ![Alt text](relative/path/to/img.jpg?raw=true "Title") -->
+
+## Remarques
+
+Obligation de modifier manuellement car script demande alignement parfait
+(on aura pu)
+
 ## Commentaire

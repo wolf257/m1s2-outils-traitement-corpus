@@ -1,0 +1,100 @@
+
+
+- Tagging des fichiers.
+
+- Récupération des infos de POS (tagging + référence).
+
+
+ ******* Texte : ./bashung.txt ******* 
+
+* Precision Globale : 83.33% (40/48)
+
+* Précision par POS (par ordre de fréquence décroissant):
+	VER:pres : 100.0% (7/7)
+	PRO:PER : 100.0% (7/7)
+	SENT : 100.0% (6/6)
+	PRO : 33.33% (2/6)
+	NOM : 75.0% (3/4)
+	ADV : 100.0% (4/4)
+	PRP : 100.0% (3/3)
+	PRO:DEM : 66.67% (2/3)
+	PRP:det : 100.0% (2/2)
+	VER:infi : 100.0% (1/1)
+	VER:impe : 0.0% (0/1)
+	VER:cond : 100.0% (1/1)
+	VER : 100.0% (1/1)
+	KON : 0.0% (0/1)
+	DET:ART : 100.0% (1/1)
+
+
+* Erreurs (par ordre de fréquence décroissant):
+('PRO', 'ADJ') - 2
+('VER:impe', 'VER:pres') - 1
+('PRO:DEM', 'NAM') - 1
+('PRO', 'VER:cond') - 1
+('PRO', 'NOM') - 1
+('NOM', 'VER:pper') - 1
+('KON', 'ADJ') - 1
+
+
+ ******* Texte : ./sequoia.txt ******* 
+
+* Precision Globale : 100.0% (90/90)
+
+* Précision par POS (par ordre de fréquence décroissant):
+	NOM : 100.0% (21/21)
+	PRP : 100.0% (10/10)
+	KON : 100.0% (9/9)
+	ADV : 100.0% (8/8)
+	PUN : 100.0% (6/6)
+	DET:ART : 100.0% (6/6)
+	ADJ : 100.0% (6/6)
+	VER:impf : 100.0% (4/4)
+	PRO:PER : 100.0% (4/4)
+	DET:POS : 100.0% (4/4)
+	VER:pres : 100.0% (3/3)
+	SENT : 100.0% (3/3)
+	PRP:det : 100.0% (3/3)
+	VER:infi : 100.0% (2/2)
+	NUM : 100.0% (1/1)
+
+
+* Erreurs (par ordre de fréquence décroissant):
+	Apparemment, il n'y a aucune erreur.
+
+
+- Calculs.
+
+* Precision Globale : 94.2% (130/138)
+
+* Précision par POS (par ordre de fréquence décroissant):
+	NOM : 96.0% (24/25)
+	PRP : 100.0% (13/13)
+	ADV : 100.0% (12/12)
+	PRO:PER : 100.0% (11/11)
+	VER:pres : 100.0% (10/10)
+	KON : 90.0% (9/10)
+	SENT : 100.0% (9/9)
+	DET:ART : 100.0% (7/7)
+	PUN : 100.0% (6/6)
+	PRO : 33.33% (2/6)
+	ADJ : 100.0% (6/6)
+	PRP:det : 100.0% (5/5)
+	VER:impf : 100.0% (4/4)
+	DET:POS : 100.0% (4/4)
+	VER:infi : 100.0% (3/3)
+	PRO:DEM : 66.67% (2/3)
+	VER:impe : 0.0% (0/1)
+	VER:cond : 100.0% (1/1)
+	VER : 100.0% (1/1)
+	NUM : 100.0% (1/1)
+
+
+* Erreurs (par ordre de fréquence décroissant):
+('PRO', 'ADJ') - 2
+('VER:impe', 'VER:pres') - 1
+('PRO:DEM', 'NAM') - 1
+('PRO', 'VER:cond') - 1
+('PRO', 'NOM') - 1
+('NOM', 'VER:pper') - 1
+('KON', 'ADJ') - 1

@@ -26,7 +26,7 @@ def taggingTreetagger(nameFileIn, nameFileOut, tagger):
                     fileout.write(f"{str(elt)}\n")
 
 
-def recupInfosPOSTagging(dico_eval_pos, dico_eval_error, nameFileReference, nameFileTreeTagger):
+def recupInfosPOSTagging(dico_eval_pos_total, dico_eval_error_total, nameFileReference, nameFileTreeTagger):
     ref = open(nameFileReference, mode="r").readlines()
     tag = open(nameFileTreeTagger, mode="r").readlines()
 
@@ -44,31 +44,31 @@ def recupInfosPOSTagging(dico_eval_pos, dico_eval_error, nameFileReference, name
 
         # Extraction POS
         pos_ref = ligne_ref[1].strip()
-        pos_ref = pos_ref.split(':')[0] if ":" in pos_ref else pos_ref
+        # pos_ref = pos_ref.split(':')[0] if ":" in pos_ref else pos_ref
         pos_tag = ligne_tag[1].strip()
-        pos_tag = pos_tag.split(':')[0] if ':' in pos_tag else pos_tag
+        # pos_tag = pos_tag.split(':')[0] if ':' in pos_tag else pos_tag
         
-        dico_eval_pos.setdefault(pos_ref, {})
-        dico_eval_pos[pos_ref].setdefault("total", 0)
-        dico_eval_pos[pos_ref].setdefault("correct", 0)
+        dico_eval_pos_total.setdefault(pos_ref, {})
+        dico_eval_pos_total[pos_ref].setdefault("total", 0)
+        dico_eval_pos_total[pos_ref].setdefault("correct", 0)
         
         
         # Comparaison et remplissage dicos
-        dico_eval_pos[pos_ref]['total'] += 1
+        dico_eval_pos_total[pos_ref]['total'] += 1
         
         if pos_ref == pos_tag :
-            dico_eval_pos[pos_ref]['correct'] += 1
+            dico_eval_pos_total[pos_ref]['correct'] += 1
         else :
-            dico_eval_error.setdefault( (pos_ref, pos_tag) , 0)
-            dico_eval_error[(pos_ref, pos_tag)] +=1
+            dico_eval_error_total.setdefault( (pos_ref, pos_tag) , 0)
+            dico_eval_error_total[(pos_ref, pos_tag)] +=1
         
-def evaluationPOSTagging(dico_eval_pos, dico_eval_error):
+def evaluationPOSTagging(dico_eval_pos_total, dico_eval_error_total):
 
     """ Calculs """
  
     # Précision Globale : nbCorrect / nbTotal    
-    nbTotal = sum ( dico_eval_pos[pos]['total'] for pos in dico_eval_pos )
-    nbCorrect = sum( dico_eval_pos[pos]['correct'] for pos in dico_eval_pos )
+    nbTotal = sum ( dico_eval_pos_total[pos]['total'] for pos in dico_eval_pos_total )
+    nbCorrect = sum( dico_eval_pos_total[pos]['correct'] for pos in dico_eval_pos_total )
     
     precisionGlobale = round(float(nbCorrect/nbTotal)*100 , 2)
     
@@ -76,11 +76,11 @@ def evaluationPOSTagging(dico_eval_pos, dico_eval_error):
 
     # Précision par POS
     print("* Précision par POS (par ordre de fréquence décroissant):")
-    sorted_pos = sorted( [ (dico_eval_pos[pos]['total'], pos) for pos in dico_eval_pos ], reverse = True )
+    sorted_pos = sorted( [ (dico_eval_pos_total[pos]['total'], pos) for pos in dico_eval_pos_total ], reverse = True )
     
     for (_, pos) in sorted_pos:
-        nbCorrectPOS = dico_eval_pos[pos]['correct']
-        nbTotalPOS = dico_eval_pos[pos]['total']
+        nbCorrectPOS = dico_eval_pos_total[pos]['correct']
+        nbTotalPOS = dico_eval_pos_total[pos]['total']
         precisionPOS = round(float(nbCorrectPOS/nbTotalPOS)*100 , 2)
         print(f"\t{pos} : {precisionPOS}% ({nbCorrectPOS}/{nbTotalPOS})")
 
@@ -88,8 +88,8 @@ def evaluationPOSTagging(dico_eval_pos, dico_eval_error):
 
     # Erreurs, par frequence
     print(f"* Erreurs (par ordre de fréquence décroissant):")
-    erreurs = sum( dico_eval_error.values() )
-    sorted_errors = sorted( [ (dico_eval_error[erreur], erreur) for erreur in dico_eval_error ], reverse = True )
+    erreurs = sum( dico_eval_error_total.values() )
+    sorted_errors = sorted( [ (dico_eval_error_total[erreur], erreur) for erreur in dico_eval_error_total ], reverse = True )
     
     if len(sorted_errors) == 0:
         print("\tApparemment, il n'y a aucune erreur.")
@@ -109,33 +109,42 @@ def main():
     # Construction et configuration du wrapper
     tagger = treetaggerwrapper.TreeTagger(TAGLANG='fr', TAGINENC='utf-8',
                                           TAGOUTENC='utf-8' , TAGDIR=TREETAGGER_ROOT)
-
+    #
     # for nameFileIn in fichiersDeBase:
-    #     nameFileOut = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger.txt'
+    #     nameFileOut = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger-new.txt'
     #
     #     taggingTreetagger(nameFileIn, nameFileOut, tagger)
 
 
     # PARTIE EVALUATION (librement inspiré du script eval_pos_tagger.py)
     
-    dico_eval_pos = {}
-    # forme : dico_eval_pos['VERB']['correct'] = 13; 
-    #         dico_eval_pos['VERB']['total'] = 14
+    dico_eval_pos_total = {}
+    # forme : dico_eval_pos_total['VERB']['correct'] = 13; 
+    #         dico_eval_pos_total['VERB']['total'] = 14
     
-    dico_eval_error = {}
-    # forme : dico_eval_error[('NOM','ADJ')] = 10 c-a-d que 10 fois, un nom a été taggé comme adj
+    dico_eval_error_total = {}
+    # forme : dico_eval_error_total[('NOM','ADJ')] = 10 c-a-d que 10 fois, un nom a été taggé comme adj
     
     print(f"- Récupération des infos de POS (tagging + référence).\n")
     
     for nameFileIn in fichiersDeBase:
+        dico_eval_pos_texte = {}
+        dico_eval_error_texte = {}
+        
         nameFileTreeTagger = nameFileIn.split('/')[-1].split('.')[0] + '-treetagger.txt'
         nameFileReference = nameFileIn.split('/')[-1].split('.')[0] + '-reference.txt'
 
-        recupInfosPOSTagging(dico_eval_pos, dico_eval_error, nameFileReference, nameFileTreeTagger)
+        print(f"\n\n ******* Texte : {nameFileIn} ******* \n")
+        
+        recupInfosPOSTagging(dico_eval_pos_texte, dico_eval_error_texte, nameFileReference, nameFileTreeTagger)
+        
+        evaluationPOSTagging(dico_eval_pos_texte, dico_eval_error_texte)
+        
+        recupInfosPOSTagging(dico_eval_pos_total, dico_eval_error_total, nameFileReference, nameFileTreeTagger)
 
-    print(f"- Calculs.\n")
+    print(f"\n- Calculs.\n")
 
-    evaluationPOSTagging(dico_eval_pos, dico_eval_error)
+    evaluationPOSTagging(dico_eval_pos_total, dico_eval_error_total)
     
 if __name__ == '__main__':
     main()
