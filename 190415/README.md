@@ -18,7 +18,7 @@ Les 2 fichiers :
 
 ## Résultats
 
-[lien-vers-résultats](./resultats.txt)
+[lien-vers-résultats](./resultats.txt){:target="_blank"}
 
 ## Remarques
 
