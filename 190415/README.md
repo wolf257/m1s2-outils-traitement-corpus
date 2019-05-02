@@ -18,8 +18,8 @@ Les 2 fichiers :
 
 ## Résultats
 
-<!-- ![Alt text](relative/path/to/img.jpg?raw=true "Title") -->
-[a relative link](./resultats.txt)
+[lien-vers-résultats](./resultats.txt)
+
 ## Remarques
 
 Obligation de modifier manuellement car script demande alignement parfait

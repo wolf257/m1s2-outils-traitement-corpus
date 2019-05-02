@@ -63,7 +63,7 @@
 	Apparemment, il n'y a aucune erreur.
 
 
-- Calculs.
+ ******* Évaluation globale ******* 
 
 * Precision Globale : 94.2% (130/138)
 

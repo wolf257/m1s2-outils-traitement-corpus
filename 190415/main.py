@@ -142,7 +142,7 @@ def main():
         
         recupInfosPOSTagging(dico_eval_pos_total, dico_eval_error_total, nameFileReference, nameFileTreeTagger)
 
-    print(f"\n- Calculs.\n")
+    print(f"\n\n ******* Évaluation globale ******* \n")
 
     evaluationPOSTagging(dico_eval_pos_total, dico_eval_error_total)
     
